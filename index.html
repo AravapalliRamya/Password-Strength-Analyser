@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Fort</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="light">
+
+<div class="container">
+
+    <!-- Top bar -->
+    <div class="top-bar">
+        <div class="logo">🛡️</div>
+
+        <!-- Dark mode toggle -->
+        <label class="switch">
+            <input type="checkbox" onclick="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <h1>Password Fort</h1>
+    <p class="subtitle">
+        Test the strength of your passwords against modern cracking techniques.
+        Secure, private, and instant.
+    </p>
+
+    <div class="card">
+        <label>PASSWORD TO TEST</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter a password to analyze..."
+            oninput="analyzePassword()"
+        >
+
+        <div class="progress">
+            <div id="bar"></div>
+        </div>
+
+        <div class="output">
+            <p><b>Strength:</b> <span id="strength">—</span></p>
+            <p><b>Entropy:</b> <span id="entropy">—</span> bits</p>
+            <p><b>Crack Time:</b> <span id="time">—</span></p>
+        </div>
+    </div>
+
+    <p class="note">
+        Security Note: This tool runs locally for analysis.
+        We do not store or transmit your password.
+    </p>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
